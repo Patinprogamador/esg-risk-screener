@@ -1,7 +1,7 @@
 [project]
 name = "esg-risk-screener"
 version = "0.1.0"
-description = Screens ESG-related news and scores corporate reputational and credit risk wit an LLM pipeline.
+description = "Screens ESG-related news and scores corporate reputational and credit risk wit an LLM pipeline."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
