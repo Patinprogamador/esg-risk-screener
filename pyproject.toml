@@ -1,0 +1,26 @@
+[project]
+name = "esg-risk-screener"
+version = "0.1.0"
+description = Screens ESG-related news and scores corporate reputational and credit risk wit an LLM pipeline.
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "feedparser>=6.0.14",
+    "google-genai>=2.21.0",
+    "httpx>=0.28.1",
+    "pydantic>=2.13.5",
+    "python-dotenv>=1.2.3",
+]
+
+[project.scripts]
+esg-risk-screener = "esg_risk_screener:main"
+
+[build-system]
+requires = ["uv_build>=0.10.9,<0.11.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.5",
+]
