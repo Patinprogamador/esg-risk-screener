@@ -8,7 +8,14 @@ wheels/
 
 # Virtual environments
 .venv
+
 # Secrets
 .env
 .env.*
 !.env.example
+
+# Local data / build
+data/
+*.db
+.coverage
+htmlcov/

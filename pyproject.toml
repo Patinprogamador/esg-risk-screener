@@ -1,18 +1,24 @@
 [project]
 name = "esg-risk-screener"
 version = "0.1.0"
-description = "Screens ESG-related news and scores corporate reputational and credit risk wit an LLM pipeline."
+description = "Screens ESG-related news and scores corporate reputational and credit risk with an LLM pipeline."
 readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Akin Alexandre Mendes Martins" }]
 requires-python = ">=3.14"
 dependencies = [
+    "fastapi>=0.141.1",
     "feedparser>=6.0.14",
     "google-genai>=2.21.0",
     "httpx>=0.28.1",
     "pydantic>=2.13.5",
+    "pydantic-settings>=2.15.0",
     "python-dotenv>=1.2.3",
+    "uvicorn[standard]>=0.52.4",
 ]
 
 [project.scripts]
+esg-screener = "esg_risk_screener:main"
 esg-risk-screener = "esg_risk_screener:main"
 
 [build-system]
@@ -22,5 +28,18 @@ build-backend = "uv_build"
 [dependency-groups]
 dev = [
     "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
     "ruff>=0.16.5",
 ]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 100
+extend-exclude = ["pratica*.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
