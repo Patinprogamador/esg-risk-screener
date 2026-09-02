@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Sample Business News</title>
+    <link>https://example.com</link>
+    <description>Fixture feed for tests</description>
+    <item>
+      <title>Miner fined $150m over tailings dam collapse and river contamination</title>
+      <link>https://example.com/news/tailings-dam</link>
+      <summary>Regulator says the company ignored years of safety warnings.</summary>
+      <published>Mon, 01 Sep 2026 08:00:00 GMT</published>
+    </item>
+    <item>
+      <title>Retailer pledges 100% renewable electricity across stores by 2030</title>
+      <link>https://example.com/news/renewable-pledge</link>
+      <summary>The plan was verified by an independent climate group.</summary>
+      <published>Mon, 01 Sep 2026 09:00:00 GMT</published>
+    </item>
+    <item>
+      <title>Central bank holds interest rates steady for third meeting</title>
+      <link>https://example.com/news/rates-hold</link>
+      <summary>Policymakers cited stable inflation and steady growth.</summary>
+      <published>Mon, 01 Sep 2026 10:00:00 GMT</published>
+    </item>
+    <item>
+      <title>Factory workers strike over unpaid overtime and safety conditions</title>
+      <link>https://example.com/news/workers-strike</link>
+      <summary>Union says talks with management have stalled.</summary>
+      <published>Mon, 01 Sep 2026 11:00:00 GMT</published>
+    </item>
+    <item>
+      <title>Board chair resigns amid accounting fraud probe by regulator</title>
+      <link>https://example.com/news/fraud-probe</link>
+      <summary>Shares fell 12% as the SEC opened a formal investigation.</summary>
+      <published>Mon, 01 Sep 2026 12:00:00 GMT</published>
+    </item>
+    <item>
+      <title>Factory workers strike over unpaid overtime and safety conditions</title>
+      <link>https://example.com/news/workers-strike</link>
+      <summary>Duplicate link on purpose - should be collapsed.</summary>
+      <published>Mon, 01 Sep 2026 11:05:00 GMT</published>
+    </item>
+  </channel>
+</rss>
