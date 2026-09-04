@@ -1,5 +1,7 @@
 # ESG Risk Screener
 
+**Repo:** https://github.com/Patinprogamador/esg-risk-screener
+
 Screens business news for ESG (Environmental, Social, Governance) risk signals and
 turns them into an explainable reputational / credit-risk score, plus a short
 briefing for a credit committee.
@@ -11,6 +13,15 @@ API key.
 
 > Motivation: I do ESG news screening for corporate credit risk by hand at work.
 > This automates the repetitive part.
+
+## How this was built
+
+Built through **AI-assisted ("vibe coding") development**: I set the requirements,
+architecture and prompt design, and used Claude to generate and iterate on the
+implementation. I reviewed, tested and can explain every module (see the
+file-by-file notes in [`WALKTHROUGH.md`](WALKTHROUGH.md)) — the offline `fake`
+LLM provider and the 28-test suite exist specifically so the whole pipeline can be
+verified end to end without needing an API key.
 
 ## Pipeline
 
