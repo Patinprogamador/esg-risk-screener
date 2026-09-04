@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     # "fake" is a deterministic offline stub used by the tests and by anyone
     # who wants to run the pipeline without a key.
     llm_provider: str = "gemini"
-    llm_model: str = "gemini-2.0-flash"
+    llm_model: str = "gemini-3.6-flash"
     gemini_api_key: str | None = None
 
     # --- storage ---

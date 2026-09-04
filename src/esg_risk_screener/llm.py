@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import re
+import time
 from typing import Protocol
 
 from esg_risk_screener.config import settings
@@ -39,16 +40,36 @@ class GeminiProvider:
         self._client = genai.Client(api_key=api_key)
         self._model = model
 
+    # Transient API failures (503 high demand, 429 rate limit) are retried with a
+    # widening back-off; everything else propagates immediately.
+    _MAX_ATTEMPTS = 5
+    _BACKOFF_SECONDS = 3
+
     def _generate(self, system: str, user: str, *, as_json: bool) -> str:
-        from google.genai import types
+        from google.genai import errors, types
 
         config = types.GenerateContentConfig(
             system_instruction=system,
             temperature=0.0,
             response_mime_type="application/json" if as_json else "text/plain",
         )
-        resp = self._client.models.generate_content(model=self._model, contents=user, config=config)
-        return (resp.text or "").strip()
+        last_exc: Exception | None = None
+        for attempt in range(self._MAX_ATTEMPTS):
+            try:
+                resp = self._client.models.generate_content(
+                    model=self._model, contents=user, config=config
+                )
+                return (resp.text or "").strip()
+            except errors.ServerError as exc:  # 5xx - transient, back off and retry
+                last_exc = exc
+            except errors.ClientError as exc:  # retry only on 429 rate-limit
+                if exc.code != 429:
+                    raise
+                last_exc = exc
+            time.sleep(self._BACKOFF_SECONDS * (attempt + 1))
+        raise RuntimeError(
+            f"Gemini still unavailable after {self._MAX_ATTEMPTS} attempts: {last_exc}"
+        )
 
     def complete_text(self, system: str, user: str) -> str:
         return self._generate(system, user, as_json=False)
