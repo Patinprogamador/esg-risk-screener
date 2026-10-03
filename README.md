@@ -11,8 +11,7 @@ deterministic scoring → LLM-written summary. The LLM layer is provider-agnosti
 and ships with an offline stub so the whole thing runs (and is tested) without an
 API key.
 
-> Motivation: I do ESG news screening for corporate credit risk by hand at work.
-> This automates the repetitive part.
+> Motivation: at my previous job I screened ESG news for corporate credit risk by hand, once analyzing around 1,200 companies in a single week. This project automates the repetitive part.
 
 ## How this was built
 
